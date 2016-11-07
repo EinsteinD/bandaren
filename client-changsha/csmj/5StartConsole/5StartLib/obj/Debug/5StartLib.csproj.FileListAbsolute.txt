@@ -1,0 +1,29 @@
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartConsole\bin\Debug\protobuf-net.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartConsole\bin\Debug\UnityEngine.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartConsole\bin\Debug\UnityEngine.xml
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartConsole\bin\Debug\5StartLib.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartConsole\bin\Debug\5StartLib.pdb
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartConsole\obj\Debug\5StartLib.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartConsole\obj\Debug\5StartLib.pdb
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5StartLib\bin\Debug\5StartLib.dll
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5StartLib\bin\Debug\5StartLib.pdb
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5StartLib\bin\Debug\protobuf-net.dll
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5StartLib\bin\Debug\UnityEngine.dll
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5StartLib\bin\Debug\UnityEngine.xml
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5StartLib\obj\Debug\5StartLib.dll
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5StartLib\obj\Debug\5StartLib.pdb
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5StartLib.XML
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5StartLib.dll
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5StartLib.pdb
+D:\5Star\5StartConsole\5StartLib\obj\Debug\5StartLib.dll
+D:\5Star\5StartConsole\5StartLib\obj\Debug\5StartLib.pdb
+D:\5Star\5StartConsole\DLL\5StartLib.XML
+D:\5Star\5StartConsole\DLL\5StartLib.dll
+D:\5Star\5StartConsole\DLL\5StartLib.pdb
+D:\5Star\5StartConsole\5StartLib\obj\Debug\5StartLib.csprojResolveAssemblyReference.cache
+C:\csmj\5StartConsole\DLL\5StartLib.XML
+C:\csmj\5StartConsole\DLL\5StartLib.dll
+C:\csmj\5StartConsole\DLL\5StartLib.pdb
+C:\csmj\5StartConsole\5StartLib\obj\Debug\5StartLib.csprojResolveAssemblyReference.cache
+C:\csmj\5StartConsole\5StartLib\obj\Debug\5StartLib.dll
+C:\csmj\5StartConsole\5StartLib\obj\Debug\5StartLib.pdb

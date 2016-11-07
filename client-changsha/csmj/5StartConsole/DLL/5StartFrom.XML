@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>5StartFrom</name>
+    </assembly>
+    <members>
+        <member name="T:KWX_From.GameCMD">
+            <summary>
+            游戏命令 T为游戏扩展命令
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:KWX_From.GameCMD.GameMessage">
+            <summary>
+            游戏内部消息
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,256 @@
+syntax = "proto2";
+
+//本文件定义客户端与游戏服务器的交互命令
+//以下为通用命令
+//----------------------------------------------------------------------------------
+//以下为客户端发给服务器的命令和回应
+
+//命令ID：1，心跳包
+message CMD_HeartBeat
+{
+}
+message RSP_HeartBeat
+{
+}
+
+//命令ID：2，登录到游戏服务器
+message CMD_LoginServer
+{
+	optional string Password = 1;  //用户临时密码
+	optional uint32 RoomID = 2; //房间号
+	optional uint32 SeatID = 3; //座位号
+}
+message RSP_LoginServer
+{
+	optional int32 Error = 1;  //0表示成功，非0表示服务器拒绝
+}
+
+//命令ID：3，请求退出房间
+message CMD_ExitRoom
+{
+}
+message RSP_ExitRoom
+{
+	optional int32 Error = 1; //0表示已退出，非0不允许退出
+}
+
+//命令ID：4，聊天信息（包括文字、表情、语音等）
+message CMD_Message {
+	optional string Message = 1; //内容格式由客户端自行定义
+}
+//该命令没有回应
+
+//命令ID：5，请求查询数据
+message CMD_QueryData
+{
+	optional string Password = 1;  //用户临时密码
+	optional uint64 QueryID = 2; //查询号
+}
+message RSP_QueryData
+{
+	optional int32 Error = 1;  //0表示成功，非0表示服务器拒绝
+}
+
+
+//命令ID：6，申请解散房间
+message CMD_Dismiss
+{
+	optional int32 Action = 1;//1:申请解散 2:同意解散 3:拒绝解散
+}
+//该命令没有回应
+
+//----------------------------------------------------------------------------------
+
+//以下为服务器主动发给客户端的信息
+
+//命令ID: 101，房间内的用户信息
+message NTF_RoomUserInfo
+{  
+	optional uint32 SeatID = 1; //座位号
+	optional uint64 UserID = 2; //用户ID
+}
+
+//命令ID：102，相同用户已在另一地点登录，当前用户已被迫下线
+message NTF_SameUserLogin
+{
+	optional uint32 IP = 1; //另一用户的IP地址
+}
+
+//命令ID: 103，房间内的用户上线
+message NTF_RoomUserOnline {  
+	optional uint32 SeatID = 1; //座位号
+}
+
+//命令ID: 104，房间内的用户离线
+message NTF_RoomUserOffline
+{  
+	optional uint32 SeatID = 1; //座位号
+}
+
+//命令ID: 105，房间已解散
+message NTF_RoomDismissed
+{  
+}
+
+//命令ID: 106，聊天信息
+message NTF_Message
+{
+	optional uint32 SeatID = 1; //发送人的座位号
+	optional string Message = 2; //与CMD_Message结构中的Message一致。
+}
+
+//命令ID：107，房间解散回应状态
+message NTF_Dismiss
+{
+	repeated int32 Action = 1;//各个用户的回应。0:未回应 1:申请解散 2:同意解散 3:拒绝解散。如果为空，则表示房间已拒绝解散，游戏继续。
+}
+
+
+//以下是麻将命令
+//----------------------------------------------------------------------------------
+//打一张牌(ID=Client_Protocol_Player_Deal_Card)
+message PB_Client_DealCard
+{
+	optional uint32 card_value=1;//打的牌
+};
+
+//吃牌(ID=Client_Protocol_Player_Chi_Card)
+message PB_Client_ChiCard
+{
+	repeated uint32 chi_card=1;
+};
+
+//碰牌(ID=Client_Protocol_Player_Peng_Card)
+message PB_Client_PengCard
+{
+	optional uint32 peng_card=1;
+};
+
+//杠牌(ID=Client_Protocol_Player_Gang_Card)
+message PB_Client_GangCard
+{
+};
+
+//开杠(ID=Client_Protocol_Player_Kai_Gang)
+message PB_Client_KaiGang
+{
+	optional uint32 gang_card=1;
+};
+
+//补张(ID=Client_Protocol_Player_Bu_Zhang)
+message PB_Client_BuZhang
+{
+	optional uint32 gang_card=1;
+};
+
+//胡牌(ID=Client_Protocol_Player_Hu_Pai)
+message PB_Client_HuPai
+{
+};
+
+//过牌(ID=Client_Protocol_Player_Pass_Card)
+message PB_Client_Pass
+{
+};
+
+//海底牌(ID=Client_Protocol_Player_HDP)
+message PB_Client_HDP
+{
+	optional uint32 want = 1;//要不要，0不要，1要
+};
+
+//准备(ID=Client_Protocol_Player_Ready)
+message PB_Client_Player_Ready
+{
+};
+
+message PB_Server_Player_Info
+{
+	optional uint32 seat_id = 1;//座位ID
+	optional int32 player_status = 2;//玩家状态
+	optional uint32 ting_pai = 3;//是否开档之后的听牌
+	optional uint32 zha_niao = 4;//扎鸟次数
+	repeated uint32 can_chi_card = 5;//能吃的牌
+	repeated uint32 can_peng_card = 6;//能碰的牌
+	repeated uint32 can_gang_card = 7;//能杠的牌
+	optional uint32 hu_pai_type = 8;//胡牌类型
+	repeated uint32 have_chi_card = 9;//已经吃的牌
+	repeated uint32 have_peng_card = 10;//已经碰的牌
+	repeated uint32 have_gang_card = 11;//已经杠的牌
+	repeated uint32 last_cards = 12;//剩下的手牌
+	repeated uint32 play_cards = 13;//打过的手牌
+	optional uint32 action = 14;//播放动作,1-吃，2-碰，3-杠，4-胡，5-打牌
+	optional uint32 cards = 15;//打的牌
+	optional int32 player_score = 16;//玩家分数
+};
+
+//胡牌(ID=Server_Protocol_Room_Info)
+message PB_Server_Room_Info
+{
+	optional int32 nReturnCode = 1;//错误码，0是正常
+	repeated PB_Server_Player_Info player_info = 2;//桌子上的玩家
+	optional uint32 banker = 3;//庄家
+	optional uint32 next = 4;//下家
+	optional uint32 opposite = 5;//对家
+	optional uint32 top = 6;//上家
+	optional uint32 last_player = 7;//上轮出牌玩家
+	repeated uint32 turn_player = 8;//轮到谁出牌
+	optional uint32 round_num = 9;//第几轮
+	optional uint32 max_round = 10;//最多几轮
+	repeated uint32 dice = 11;//骰子
+	optional uint32 room_status = 12;//房间状态
+	optional uint32 mo_card = 13;//摸牌
+	optional uint32 last_cards_size = 14;//桌面上剩下牌的数量
+	repeated uint32 last_deal_card = 15;//上一次打的牌，开杠的时候有2张牌
+	repeated uint32 win_player = 16;//胡牌的人
+};
+
+//每个玩家的单局结算信息
+message PB_Server_Single_Player
+{
+	optional uint32 seat_id = 1;//座位ID
+	optional int32 score = 2;//分数
+	optional int32 hu_pai_type = 3;//胡牌类型
+	optional uint32 hu_pai = 4;//胡的哪张牌
+	optional int32 hu_pai_type1 = 5;//胡牌类型
+	optional uint32 hu_pai1 = 6;//胡的哪张牌
+	optional uint32 hu_pai_style = 7;//1.胡了 2.放炮
+	optional uint32 zhong_niao_count = 8;//中鸟次数
+	repeated uint32 last_cards = 9;//手牌
+	repeated uint32 have_chi_card = 10;//已经吃的牌
+	repeated uint32 have_peng_card = 11;//已经碰的牌
+	repeated uint32 have_gang_card = 12;//已经杠的牌
+};
+
+//单局结算
+message PB_Server_Single_Bill
+{
+	optional uint32 round_num = 1;//第几轮
+	optional uint32 max_round = 2;//最多几轮
+	optional uint32 title = 3;//1.自摸 2.放炮 3.流局
+	repeated uint32 zhong_niao_pai = 4;//鸟牌
+	repeated uint32 hu_pai_id = 5;//胡牌人ID
+	repeated PB_Server_Single_Player player_info = 6;//玩家结算信息
+};
+
+//每个玩家的总结算信息
+message PB_Server_All_Player_Info
+{
+	optional uint32 seat_id = 1;//座位ID
+	optional uint32 win = 2;//赢的次数
+	optional uint32 fang_pao = 3;//放炮次数
+	optional uint32 get_pao = 4;//点炮次数
+	optional uint32 zi_mo = 5;//自摸次数
+	optional uint32 kai_gang = 6;//开杠次数
+	optional uint32 zha_niao = 7;//扎鸟次数
+	optional int32 all_score = 8;//分数
+};
+
+//总结算
+message PB_Server_ALL_Bill_Info
+{
+	repeated PB_Server_All_Player_Info player_info = 1;//玩家总结算信息
+	repeated uint32 best_win = 2;//大赢家
+	repeated uint32 best_pao = 3;//最佳炮手
+};
+

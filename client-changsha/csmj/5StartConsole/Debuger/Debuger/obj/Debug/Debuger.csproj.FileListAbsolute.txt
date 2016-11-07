@@ -1,0 +1,21 @@
+c:\users\admin\documents\visual studio 2013\Projects\Debuger\Debuger\obj\Debug\Debuger.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2013\Projects\Debuger\Debuger\bin\Debug\Debuger.dll
+c:\users\admin\documents\visual studio 2013\Projects\Debuger\Debuger\bin\Debug\Debuger.pdb
+c:\users\admin\documents\visual studio 2013\Projects\Debuger\Debuger\bin\Debug\UnityEngine.dll
+c:\users\admin\documents\visual studio 2013\Projects\Debuger\Debuger\bin\Debug\UnityEngine.xml
+c:\users\admin\documents\visual studio 2013\Projects\Debuger\Debuger\obj\Debug\Debuger.dll
+c:\users\admin\documents\visual studio 2013\Projects\Debuger\Debuger\obj\Debug\Debuger.pdb
+D:\5Star\5StartConsole\Debuger\DLL\Debuger.XML
+D:\5Star\5StartConsole\Debuger\DLL\Debuger.dll
+D:\5Star\5StartConsole\Debuger\DLL\Debuger.pdb
+D:\5Star\5StartConsole\Debuger\Debuger\obj\Debug\Debuger.dll
+D:\5Star\5StartConsole\Debuger\Debuger\obj\Debug\Debuger.pdb
+D:\5Star\5StartConsole\DLL\Debuger.dll
+D:\5Star\5StartConsole\DLL\Debuger.pdb
+D:\5Star\5StartConsole\DLL\Debuger.XML
+C:\csmj\5StartConsole\DLL\Debuger.dll
+C:\csmj\5StartConsole\DLL\Debuger.pdb
+C:\csmj\5StartConsole\DLL\Debuger.XML
+C:\csmj\5StartConsole\Debuger\Debuger\obj\Debug\Debuger.dll
+C:\csmj\5StartConsole\Debuger\Debuger\obj\Debug\Debuger.pdb
+C:\csmj\5StartConsole\Debuger\Debuger\obj\Debug\Debuger.csprojResolveAssemblyReference.cache

@@ -1,0 +1,29 @@
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\5STARTCONSOLES.exe.config
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\5STARTCONSOLES.exe
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\5STARTCONSOLES.pdb
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\5StartLib.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\protobuf-net.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\UnityEngine.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\5StartLib.pdb
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\bin\Debug\UnityEngine.xml
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.exe
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.pdb
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5STARTCONSOLES.exe.config
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5STARTCONSOLES.XML
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5STARTCONSOLES.exe
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5STARTCONSOLES.pdb
+D:\5Star\5StartConsole\DLL\5STARTCONSOLES.exe.config
+D:\5Star\5StartConsole\DLL\5STARTCONSOLES.XML
+D:\5Star\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.exe
+D:\5Star\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.pdb
+D:\5Star\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.csprojResolveAssemblyReference.cache
+D:\5Star\5StartConsole\DLL\5STARTCONSOLES.exe
+D:\5Star\5StartConsole\DLL\5STARTCONSOLES.pdb
+C:\csmj\5StartConsole\DLL\5STARTCONSOLES.exe.config
+C:\csmj\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.csprojResolveAssemblyReference.cache
+C:\csmj\5StartConsole\DLL\5STARTCONSOLES.XML
+C:\csmj\5StartConsole\DLL\5STARTCONSOLES.exe
+C:\csmj\5StartConsole\DLL\5STARTCONSOLES.pdb
+C:\csmj\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.exe
+C:\csmj\5StartConsole\5STARTCONSOLES\obj\Debug\5STARTCONSOLES.pdb

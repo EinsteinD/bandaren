@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Debuger</name>
+    </assembly>
+    <members>
+        <member name="F:UnityEngine.Debuger.EnableLog">
+            <summary>
+            DEBUG日志开关 0关闭 1控制台 2unity3d
+            </summary>
+        </member>
+        <member name="M:UnityEngine.Debuger.LogRed(System.Object)">
+            <summary>
+            红
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:UnityEngine.Debuger.LogGreen(System.Object)">
+            <summary>
+            绿
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:UnityEngine.Debuger.LogBlue(System.Object)">
+            <summary>
+            蓝
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:UnityEngine.Debuger.LogYellow(System.Object)">
+            <summary>
+            黄
+            </summary>
+            <param name="message"></param>
+        </member>
+    </members>
+</doc>

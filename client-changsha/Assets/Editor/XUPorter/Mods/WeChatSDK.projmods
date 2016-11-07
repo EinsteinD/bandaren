@@ -1,0 +1,21 @@
+{
+    "group": "WeChatSDK",
+    "libs": ["libz.dylib", "libsqlite3.0.dylib", "libc++.dylib"],
+    "frameworks": ["SystemConfiguration.framework", "CoreTelephony.framework", "Security.framework"],
+    "headerpaths": [],
+    "files": [],
+    "folders": ["Editor/XUPorter/Mods/iOS/WeChatSDK/"],
+    "excludes": ["^.*.meta$", "^.*.mdown$", "^.*.pdf$", "^.*.txt$", "^.*.DS_Store$"],
+    "compiler_flags": [],
+	"linker_flags": [],
+    "plist": {
+        "urltype" : [
+            {
+                "role": "Editor",
+                "name" : "weixin",
+                "schemes":["wx3a77d58e920f82b6"]
+            }
+        ],
+        "queriesschemes" : ["weixin", "wechat"],
+    }
+}

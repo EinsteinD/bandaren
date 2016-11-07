@@ -1,0 +1,25 @@
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\bin\Debug\5StartFrom.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\bin\Debug\5StartFrom.pdb
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\bin\Debug\5StartLib.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\bin\Debug\protobuf-net.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\bin\Debug\UnityEngine.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\bin\Debug\5StartLib.pdb
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\bin\Debug\UnityEngine.xml
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\obj\Debug\5StartFrom.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\obj\Debug\5StartFrom.dll
+c:\users\admin\documents\visual studio 2013\Projects\5StartConsole\5StartFrom\obj\Debug\5StartFrom.pdb
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5StartFrom.XML
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5StartFrom.dll
+C:\Users\Admin\Documents\Visual Studio 2013\Projects\5StartConsole\DLL\5StartFrom.pdb
+D:\5Star\5StartConsole\5StartFrom\obj\Debug\5StartFrom.csprojResolveAssemblyReference.cache
+D:\5Star\5StartConsole\5StartFrom\obj\Debug\5StartFrom.dll
+D:\5Star\5StartConsole\5StartFrom\obj\Debug\5StartFrom.pdb
+D:\5Star\5StartConsole\DLL\5StartFrom.XML
+D:\5Star\5StartConsole\DLL\5StartFrom.dll
+D:\5Star\5StartConsole\DLL\5StartFrom.pdb
+C:\csmj\5StartConsole\5StartFrom\obj\Debug\5StartFrom.csprojResolveAssemblyReference.cache
+C:\csmj\5StartConsole\DLL\5StartFrom.XML
+C:\csmj\5StartConsole\DLL\5StartFrom.dll
+C:\csmj\5StartConsole\DLL\5StartFrom.pdb
+C:\csmj\5StartConsole\5StartFrom\obj\Debug\5StartFrom.dll
+C:\csmj\5StartConsole\5StartFrom\obj\Debug\5StartFrom.pdb
