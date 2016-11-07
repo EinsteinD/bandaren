@@ -1,0 +1,252 @@
+syntax = "proto2";
+
+//本文件定义客户端与游戏服务器的交互命令
+
+//==================================================================================================
+//==================================================================================================
+//==================================================================================================
+//以下为通用命令
+//----------------------------------------------------------------------------------
+//以下为客户端发给服务器的命令和回应
+
+//命令ID：1，心跳包
+message CMD_HeartBeat
+{
+}
+message RSP_HeartBeat
+{
+}
+
+//命令ID：2，登录到游戏服务器
+message CMD_LoginServer
+{
+	optional string Password = 1;  //用户临时密码
+	optional uint32 RoomID = 2; //房间号
+	optional uint32 SeatID = 3; //座位号
+}
+message RSP_LoginServer
+{
+	optional int32 Error = 1;  //0表示成功，非0表示服务器拒绝
+}
+
+//命令ID：3，请求退出房间
+message CMD_ExitRoom
+{
+}
+message RSP_ExitRoom
+{
+	optional int32 Error = 1; //0表示已退出，非0不允许退出
+}
+
+//命令ID：4，聊天信息（包括文字、表情、语音等）
+message CMD_Message {
+	optional string Message = 1; //内容格式由客户端自行定义
+}
+//该命令没有回应
+
+//命令ID：5，请求查询数据
+message CMD_QueryData
+{
+	optional string Password = 1;  //用户临时密码
+	optional uint64 QueryID = 2; //查询号
+}
+message RSP_QueryData
+{
+	optional int32 Error = 1;  //0表示成功，非0表示服务器拒绝
+}
+
+//----------------------------------------------------------------------------------
+
+//以下为服务器主动发给客户端的信息
+
+//命令ID: 101，房间内的用户信息
+message NTF_RoomUserInfo
+{  
+	optional uint32 SeatID = 1; //座位号
+	optional uint64 UserID = 2; //用户ID
+}
+
+//命令ID：102，相同用户已在另一地点登录，当前用户已被迫下线
+message NTF_SameUserLogin
+{
+	optional uint32 IP = 1; //另一用户的IP地址
+}
+
+//命令ID: 103，房间内的用户上线
+message NTF_RoomUserOnline {  
+	optional uint32 SeatID = 1; //座位号
+}
+
+//命令ID: 104，房间内的用户离线
+message NTF_RoomUserOffline
+{  
+	optional uint32 SeatID = 1; //座位号
+}
+
+//命令ID: 105，房间已解散
+message NTF_RoomDismissed
+{  
+}
+
+//命令ID: 106，聊天信息
+message NTF_Message
+{
+	optional uint32 SeatID = 1; //发送人的座位号
+	optional string Message = 2; //与CMD_Message结构中的Message一致。
+}
+
+//==================================================================================================
+//==================================================================================================
+//==================================================================================================
+//以下为麻将专用命令
+//----------------------------------------------------------------------------------
+
+//以下为客户端发给服务器的动作
+
+//命令ID: 1001，出牌
+message ACTION_CHUPAI
+{
+	optional int32 Pai = 1;//打出的牌。如果在开局时立即听牌，则为0。
+	optional bool Ting = 2;//出牌后是否听
+	repeated int32 BuLiang = 3;//不亮的牌。如果没听，则忽略该参数。
+}
+
+//命令ID: 1002，吃
+message ACTION_CHI
+{
+	optional int32 Pai = 1;//吃后形成的顺子的第一张牌
+}
+
+//命令ID: 1003，碰
+message ACTION_PENG
+{
+}
+
+//命令ID: 1004，杠
+message ACTION_GANG
+{
+	optional int32 Pai = 1;//要杠的牌
+}
+
+//命令ID: 1005，和
+message ACTION_HU
+{
+}
+
+//命令ID: 1006，过
+message ACTION_GUO
+{
+}
+
+//命令ID: 1007，重新开始下一局
+message ACTION_RESTART
+{
+}
+
+//----------------------------------------------------------------------------------
+
+//以下为服务器发给客户端的信息
+
+message SHOUZHANG//手张
+{
+	optional int32 Pai = 1;
+	optional int32 State = 2;//0:正常 1:亮倒 2:扣倒
+	optional bool Gray = 3;//该牌是否以灰色显示
+}
+message KAN //坎
+{
+	optional bool AnGang = 1;//该坎牌是否为暗杠
+	repeated int32 Pai = 2;//坎中的每张牌。取值为（下同）：
+		//0: 牌背
+		//1~9: 一条~九条
+		//10~18: 一万~九万
+		//19~27: 一筒~九筒
+		//28: 东
+		//29: 南
+		//30: 西
+		//31: 北
+		//32: 中
+		//33: 发
+		//34: 白板
+		//35: 春
+		//36: 夏
+		//37: 秋
+		//38: 冬
+		//39: 梅
+		//40: 兰
+		//41: 竹
+		//42: 菊
+}
+message PLAYER_STATE
+{
+	repeated SHOUZHANG ShouZhang = 1;//手张。如果有摸张，则为最后一张
+	repeated KAN XiaZhang = 2;//下张
+	repeated int32 QiZhang = 3;//弃张。如果有刚出的牌，则为最后一张。
+	repeated int32 YiTing = 4;//已听的牌
+	optional bool ChuPai = 5;//弃张的最后一张是否为刚出的牌
+
+	optional int32 BeiShu = 6;//倍数。如果不是结算状态，则忽略该值。如果是总结算，则为总倍数。
+	optional int32 GangFen = 7;//杠分。如果不是结算状态，则忽略该值。如果是总结算，则为总杠分。
+	optional uint32 HuPaiCiShu = 8;//和牌次数。如果不是总结算，则忽略该值。
+	optional uint32 ZiMoCiShu = 9;//自摸次数。如果不是总结算，则忽略该值。
+	optional uint32 ZuiDaBeiShu = 10;//最大倍数。如果不是总结算，则忽略该值。
+	optional uint32 GangPaiCiShu = 11;//杠牌次数。如果不是总结算，则忽略该值。
+	optional uint32 LiangDaoCiShu = 12;//亮倒次数。如果不是总结算，则忽略该值。
+	optional uint32 DiaoPaoCiShu = 13;//点炮次数。如果不是总结算，则忽略该值。
+
+	optional int32 Action = 14;//已做出的动作 1:无 2:吃 3:碰 4:杠 5:和 6:听 7:出 8:摸。如果未和，则忽略以下参数
+	optional bool PengPengHu = 15;//是否碰碰和
+	optional bool QiDui = 16;//是否七对
+	optional bool ZiMoHu = 17;//是否自摸和
+	optional bool MingSiGuiYi = 18;//是否明四归一
+	optional bool AnSiGuiYi = 19;//是否暗四归一
+	optional bool LongQiDui = 20;//是否龙七对
+	optional bool ShuangLongQiDui = 21;//是否双龙七对
+	optional bool DaSanYuan = 22;//是否大三元
+	optional bool XiaoSanYuan = 23;//是否小三元
+	optional bool GangShangKaiHua = 24;//是否杠上开花
+	optional bool GangShangPao = 25;//是否杠上炮
+	optional uint32 QiangGangHu = 26;//如果是抢杠和，则表示抢的是第几杠。0表示非抢杠和。
+	optional bool QingYiSe = 27;//是否清一色
+	optional bool ShouZhuaYi = 28;//是否手抓一
+	optional bool LiangDao = 29;//是否亮倒
+	optional bool KaWuXing = 30;//是否卡五星
+	optional bool BaoHu = 31;//是否包和
+	optional bool SanLongQiDui = 32;//是否三龙七对
+	optional bool LiangDaoFangChong = 33;//是否亮倒放铳
+}
+message TING
+{
+	optional int32 ChuPai = 1;//可出的牌。如果为0，表示在开局时即可听，不用出牌。
+	repeated int32 TingPai = 2;//出牌后听的牌。
+}
+message LIANG
+{
+	repeated int32 Pai = 1;//哪些牌不亮。一个数字代表该牌的一副刻子。
+	repeated TING KeChu = 2;//当上述牌不亮时，可出的牌。
+}
+//命令ID：1001，游戏当前状态
+message GAME_STATE
+{
+	repeated PLAYER_STATE Player = 1;//每个用户的状态
+	optional uint32 DunCount = 2;//墩上的牌数
+	optional uint32 DunStart = 3;//墩从哪里开始
+	optional uint32 TotalCount = 4;//总共多少张牌
+	optional uint32 Dice1 = 5;
+	optional uint32 Dice2 = 6;//两个骰子值。Dice1为非0表示游戏刚开始，要播骰子动画和抓牌动画。为0表示已在游戏，此时忽略Dice2。
+	optional uint32 ZhuangJia = 7;//庄家的座位号
+	optional uint32 CurPlayer = 8;//当前等待出牌的座位号。
+
+	repeated int32 KeChi = 9;//可吃牌的方式。如果可吃，则表示吃后形成的顺子的第一张牌
+	optional bool KePeng = 10;//是否可碰
+	repeated int32 KeGang = 11;//可杠的牌
+	optional bool KeHu = 12;//是否可和
+	repeated LIANG KeLiang = 13;//可亮牌的方式
+	repeated int32 BuLiang = 14;//可以不亮的牌。一个数字代表该牌的一副刻子。如果不可亮牌，则忽略该参数。
+
+	optional uint32 CurRound = 15;//当前是第几局。如果已结算所有局，则忽略该值。
+	optional int32 Result = 16;//0:在牌局中 1:已结算一小局 2:已结算所有局。如果不是1，则忽略以下所有参数。
+	optional int32 HuPai = 17;//和的那张牌。如果是天和，则为手张中的第一张。为0表示流局。如果是流局，则忽略以下所有参数。
+	optional int32 DianPao = 18;//点炮的玩家。为-1表示无人点炮	
+}
+
